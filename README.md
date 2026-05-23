@@ -9,7 +9,7 @@ An intelligent full-stack finance management platform powered by AI. Track expen
 - 🔐 **Authentication** – Secure sign-in & sign-up with Clerk
 - 🏦 **Account Management** – Create and manage multiple financial accounts
 - 💸 **Transaction Tracking** – Add, edit, and categorize income & expenses
-- 🤖 **AI Insights** – Gemini-powered financial analysis and monthly reports
+- 🤖 **AI Insights** – Groq powered financial analysis and monthly reports
 - 📧 **Email Alerts** – Automated budget alerts via Resend & Inngest
 - 🛡️ **Rate Limiting & Security** – ArcJet-powered bot protection and rate limiting
 - 📊 **Dashboard** – Visual overview of your finances
@@ -28,7 +28,7 @@ An intelligent full-stack finance management platform powered by AI. Track expen
 | Inngest | Background jobs & event-driven workflows |
 | ArcJet | Rate limiting & security |
 | Resend | Transactional emails |
-| Gemini AI | AI-powered financial insights |
+| Groq AI | AI-powered financial insights |
 | Tailwind CSS | Styling |
 | Shadcn UI | UI components |
 
@@ -42,7 +42,7 @@ An intelligent full-stack finance management platform powered by AI. Track expen
 - npm or yarn
 - Supabase account
 - Clerk account
-- Gemini API key
+- Groq API key
 - Resend account
 - ArcJet account
 - Inngest account
@@ -76,8 +76,8 @@ NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
 NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/onboarding
 NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/onboarding
 
-# AI (Gemini)
-GEMINI_API_KEY=
+# AI (Groq)
+GROQ_API_KEY=
 
 # Email (Resend)
 RESEND_API_KEY=
@@ -109,7 +109,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 | `DIRECT_URL` | Supabase → Project → Settings → Database |
 | `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` | Clerk Dashboard → API Keys |
 | `CLERK_SECRET_KEY` | Clerk Dashboard → API Keys |
-| `GEMINI_API_KEY` | [aistudio.google.com](https://aistudio.google.com) |
+| `GROQ_API_KEY` | [console.groq.com](https://console.groq.com)
 | `RESEND_API_KEY` | [resend.com](https://resend.com) → API Keys |
 | `ARCJET_KEY` | [arcjet.com](https://arcjet.com) → Dashboard |
 
