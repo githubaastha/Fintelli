@@ -1,36 +1,129 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 💰 Fintelli – AI Finance Platform
 
-## Getting Started
+An intelligent full-stack finance management platform powered by AI. Track expenses, manage accounts, get AI-generated financial insights, and receive automated budget alerts — all in one place.
 
-First, run the development server:
+---
 
+## 🚀 Features
+
+- 🔐 **Authentication** – Secure sign-in & sign-up with Clerk
+- 🏦 **Account Management** – Create and manage multiple financial accounts
+- 💸 **Transaction Tracking** – Add, edit, and categorize income & expenses
+- 🤖 **AI Insights** – Gemini-powered financial analysis and monthly reports
+- 📧 **Email Alerts** – Automated budget alerts via Resend & Inngest
+- 🛡️ **Rate Limiting & Security** – ArcJet-powered bot protection and rate limiting
+- 📊 **Dashboard** – Visual overview of your finances
+- 📱 **Responsive UI** – Built with Tailwind CSS and Shadcn UI
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology | Purpose |
+|---|---|
+| Next.js 14 | Full-stack React framework |
+| Supabase | PostgreSQL database hosting |
+| Prisma | Database ORM |
+| Clerk | Authentication |
+| Inngest | Background jobs & event-driven workflows |
+| ArcJet | Rate limiting & security |
+| Resend | Transactional emails |
+| Gemini AI | AI-powered financial insights |
+| Tailwind CSS | Styling |
+| Shadcn UI | UI components |
+
+---
+
+## ⚙️ Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn
+- Supabase account
+- Clerk account
+- Gemini API key
+- Resend account
+- ArcJet account
+- Inngest account
+
+### Installation
+
+1. **Clone the repository**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/your-username/fintelli.git
+cd fintelli
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Install dependencies**
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+3. **Set up environment variables**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create a `.env` file in the root directory:
+```env
+# Database (Supabase)
+DATABASE_URL=
+DIRECT_URL=
 
-## Learn More
+# Authentication (Clerk)
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/onboarding
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/onboarding
 
-To learn more about Next.js, take a look at the following resources:
+# AI (Gemini)
+GEMINI_API_KEY=
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Email (Resend)
+RESEND_API_KEY=
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Security (ArcJet)
+ARCJET_KEY=
+```
 
-## Deploy on Vercel
+4. **Set up the database**
+```bash
+npx prisma generate
+npx prisma db push
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+5. **Run the development server**
+```bash
+npm run dev
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+---
+
+## 🔑 Environment Variables Guide
+
+| Variable | Where to get it |
+|---|---|
+| `DATABASE_URL` | Supabase → Project → Settings → Database |
+| `DIRECT_URL` | Supabase → Project → Settings → Database |
+| `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` | Clerk Dashboard → API Keys |
+| `CLERK_SECRET_KEY` | Clerk Dashboard → API Keys |
+| `GEMINI_API_KEY` | [aistudio.google.com](https://aistudio.google.com) |
+| `RESEND_API_KEY` | [resend.com](https://resend.com) → API Keys |
+| `ARCJET_KEY` | [arcjet.com](https://arcjet.com) → Dashboard |
+
+---
+
+
+## 🚀 Deployment
+
+This project is optimized for deployment on **Vercel**.
+
+1. Push your code to GitHub
+2. Import the repo on [vercel.com](https://vercel.com)
+3. Add all environment variables in Vercel → Settings → Environment Variables
+4. Deploy!
+
+---
+
