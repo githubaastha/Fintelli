@@ -51,7 +51,7 @@ An intelligent full-stack finance management platform powered by AI. Track expen
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/your-username/fintelli.git
+git clone https://github.com/your-username/Fintelli.git
 cd fintelli
 ```
 
