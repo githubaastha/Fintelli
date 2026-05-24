@@ -11,7 +11,6 @@ An intelligent full-stack finance management platform powered by AI. Track expen
 - 💸 **Transaction Tracking** – Add, edit, and categorize income & expenses
 - 🤖 **AI Insights** – Groq powered financial analysis and monthly reports
 - 📧 **Email Alerts** – Automated budget alerts via Resend & Inngest
-- 🛡️ **Rate Limiting & Security** – ArcJet-powered bot protection and rate limiting
 - 📊 **Dashboard** – Visual overview of your finances
 - 📱 **Responsive UI** – Built with Tailwind CSS and Shadcn UI
 
@@ -26,7 +25,6 @@ An intelligent full-stack finance management platform powered by AI. Track expen
 | Prisma | Database ORM |
 | Clerk | Authentication |
 | Inngest | Background jobs & event-driven workflows |
-| ArcJet | Rate limiting & security |
 | Resend | Transactional emails |
 | Groq AI | AI-powered financial insights |
 | Tailwind CSS | Styling |
@@ -44,15 +42,14 @@ An intelligent full-stack finance management platform powered by AI. Track expen
 - Clerk account
 - Groq API key
 - Resend account
-- ArcJet account
 - Inngest account
 
 ### Installation
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/your-username/Fintelli.git
-cd fintelli
+git clone https://github.com/githubaastha/Fintelli.git
+cd Fintelli
 ```
 
 2. **Install dependencies**
@@ -82,8 +79,9 @@ GROQ_API_KEY=
 # Email (Resend)
 RESEND_API_KEY=
 
-# Security (ArcJet)
-ARCJET_KEY=
+# Background Jobs (Inngest)
+INNGEST_SIGNING_KEY=
+INNGEST_EVENT_KEY=
 ```
 
 4. **Set up the database**
@@ -109,12 +107,12 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 | `DIRECT_URL` | Supabase → Project → Settings → Database |
 | `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` | Clerk Dashboard → API Keys |
 | `CLERK_SECRET_KEY` | Clerk Dashboard → API Keys |
-| `GROQ_API_KEY` | [console.groq.com](https://console.groq.com)
+| `GROQ_API_KEY` | [console.groq.com](https://console.groq.com) |
 | `RESEND_API_KEY` | [resend.com](https://resend.com) → API Keys |
-| `ARCJET_KEY` | [arcjet.com](https://arcjet.com) → Dashboard |
+| `INNGEST_SIGNING_KEY` | [app.inngest.com](https://app.inngest.com) → Manage → Signing Keys |
+| `INNGEST_EVENT_KEY` | [app.inngest.com](https://app.inngest.com) → Manage → Event Keys |
 
 ---
-
 
 ## 🚀 Deployment
 
@@ -126,4 +124,3 @@ This project is optimized for deployment on **Vercel**.
 4. Deploy!
 
 ---
-

@@ -4,8 +4,6 @@ import { auth } from "@clerk/nextjs/server";
 import { db } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 import Groq from "groq-sdk";
-import aj from "@/lib/arcjet";
-import { request } from "@arcjet/next";
 
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
@@ -14,36 +12,10 @@ const serializeAmount = (obj) => ({
   amount: obj.amount.toNumber(),
 });
 
-
 export async function createTransaction(data) {
   try {
     const { userId } = await auth();
     if (!userId) throw new Error("Unauthorized");
-
-    const req = await request();
-
-   
-    const decision = await aj.protect(req, {
-      userId,
-      requested: 1,
-    });
-
-    if (decision.isDenied()) {
-      if (decision.reason.isRateLimit()) {
-        const { remaining, reset } = decision.reason;
-        console.error({
-          code: "RATE_LIMIT_EXCEEDED",
-          details: {
-            remaining,
-            resetInSeconds: reset,
-          },
-        });
-
-        throw new Error("Too many requests. Please try again later.");
-      }
-
-      throw new Error("Request blocked");
-    }
 
     const user = await db.user.findUnique({
       where: { clerkUserId: userId },
@@ -64,7 +36,6 @@ export async function createTransaction(data) {
       throw new Error("Account not found");
     }
 
-    
     const balanceChange = data.type === "EXPENSE" ? -data.amount : data.amount;
     const newBalance = account.balance.toNumber() + balanceChange;
 
@@ -142,7 +113,6 @@ export async function updateTransaction(id, data) {
 
     if (!originalTransaction) throw new Error("Transaction not found");
 
-  
     const oldBalanceChange =
       originalTransaction.type === "EXPENSE"
         ? -originalTransaction.amount.toNumber()
@@ -189,7 +159,6 @@ export async function updateTransaction(id, data) {
   }
 }
 
-
 export async function getUserTransactions(query = {}) {
   try {
     const { userId } = await auth();
@@ -221,7 +190,6 @@ export async function getUserTransactions(query = {}) {
     throw new Error(error.message);
   }
 }
-
 
 export async function scanReceipt(file) {
   try {
@@ -265,9 +233,6 @@ Rules:
     });
 
     const text = response.choices[0]?.message?.content;
-    console.log("Raw response:", text);
-
-    // Extract JSON from response even if it has extra text
     const jsonMatch = text.match(/\{[\s\S]*\}/);
     if (!jsonMatch) {
       throw new Error("No JSON found in response");
